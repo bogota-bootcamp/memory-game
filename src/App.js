@@ -1,6 +1,7 @@
 import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
+<<<<<<< HEAD
 import styled from 'styled-components'
 
 
@@ -24,6 +25,9 @@ text-align: right;
 `
 
 
+=======
+import './Card.css';
+>>>>>>> 172a9553c07d93b835799cfa0861b946dd252fe9
 
 class Game extends React.Component{
   constructor(props){
@@ -64,6 +68,14 @@ class Game extends React.Component{
     });
   }
 
+  shuffle(x){
+    let rand = Math.floor(Math.random() * 16)
+    if(x.includes(rand)){this.shuffle(x)}
+    else {x.push(rand)}
+    if(x.length<16){this.shuffle(x)}
+    return x;
+  }
+
   render(){
     let cards = this.state.cards.map(
       (card, i) =>
@@ -78,6 +90,7 @@ class Game extends React.Component{
     let score = "player 1: x point"
 
     return (
+        <div>
         <div className="App">
         <Headline>MemoryCard</Headline>
             <MyContainer>
@@ -92,6 +105,29 @@ class Game extends React.Component{
             </MyContainer>
         </div>
 
+<<<<<<< HEAD
+=======
+
+          <div className="App">
+            <div className="flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">
+              <img src="https://i.colnect.net/f/1175/001/1-Dollar-1-st-president-George-Washington-1789-1797-back.jpg"/>
+
+              </div>
+              <div className="flip-card-back">
+                <img src="https://i.colnect.net/f/1175/004/1-Dollar-4-th-president-James-Madison-1809-1817.jpg" />
+                <p>Architect & Engineer</p>
+                <p>We love that guy</p>
+              </div>
+            </div>
+            </div>
+
+
+
+            </div>
+            </div>
+>>>>>>> 172a9553c07d93b835799cfa0861b946dd252fe9
       );
     }
 }
