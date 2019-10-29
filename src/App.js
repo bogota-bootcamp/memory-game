@@ -1,6 +1,7 @@
 import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
+import './Card.css';
 
 class Game extends React.Component{
   constructor(props){
@@ -30,7 +31,7 @@ class Game extends React.Component{
     let rand = Math.floor(Math.random() * 16)
     if(x.includes(rand)){this.shuffle(x)}
     else {x.push(rand)}
-    if(x.length<16){this.shuffle(x)} 
+    if(x.length<16){this.shuffle(x)}
     return x;
   }
 
@@ -44,9 +45,31 @@ class Game extends React.Component{
     )
 
     return (
+        <div>
         <div className="App">
             {cards}
         </div>
+
+
+          <div className="App">
+            <div className="flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">
+              <img src="https://i.colnect.net/f/1175/001/1-Dollar-1-st-president-George-Washington-1789-1797-back.jpg"/>
+
+              </div>
+              <div className="flip-card-back">
+                <img src="https://i.colnect.net/f/1175/004/1-Dollar-4-th-president-James-Madison-1809-1817.jpg" />
+                <p>Architect & Engineer</p>
+                <p>We love that guy</p>
+              </div>
+            </div>
+            </div>
+
+
+
+            </div>
+            </div>
       );
     }
 }
