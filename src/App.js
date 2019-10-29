@@ -1,6 +1,15 @@
 import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
+
+import 'rein.png'
+import 'maite.png'
+import 'oscar.png'
+import 'valeria.png'
+import 'seb.png'
+import 'val.png'
+import 'karl.png'
+import 'devs.png'
 import './Card.css';
 import styled from 'styled-components'
 
