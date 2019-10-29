@@ -1,7 +1,7 @@
 import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
-<<<<<<< HEAD
+import './Card.css';
 import styled from 'styled-components'
 
 
@@ -25,9 +25,6 @@ text-align: right;
 `
 
 
-=======
-import './Card.css';
->>>>>>> 172a9553c07d93b835799cfa0861b946dd252fe9
 
 class Game extends React.Component{
   constructor(props){
@@ -94,7 +91,7 @@ class Game extends React.Component{
         <div className="App">
         <Headline>MemoryCard</Headline>
             <MyContainer>
-            
+
             {cards}
 
             <ul>
@@ -105,8 +102,6 @@ class Game extends React.Component{
             </MyContainer>
         </div>
 
-<<<<<<< HEAD
-=======
 
           <div className="App">
             <div className="flip-card">
@@ -127,7 +122,7 @@ class Game extends React.Component{
 
             </div>
             </div>
->>>>>>> 172a9553c07d93b835799cfa0861b946dd252fe9
+
       );
     }
 }
