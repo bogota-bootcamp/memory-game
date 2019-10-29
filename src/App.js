@@ -2,7 +2,7 @@ import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
 
-class App extends React.Component{
+class Game extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -14,7 +14,7 @@ class App extends React.Component{
               {face: "cat.png", down: false},
               {face: "cat.png", down: false},
               {face: "cat.png", down: false}
-      ]
+      ], score: [0,0], isTurnPlayer1: true
     }
   }
 
@@ -28,11 +28,11 @@ class App extends React.Component{
 
   render(){
     let cards = this.state.cards.map(
-      (card, i)=>
+      (card, i) =>
       <MemoryCard
       key={i} face={card.face}
-      onClick={()=>this.flip(i)}
-      cardback={card.down}/>
+      onClick={() => this.flip(i)}
+      cardback={card.down} />
     )
 
     return (
@@ -44,4 +44,4 @@ class App extends React.Component{
 }
 
 
-export default App;
+export default Game;
