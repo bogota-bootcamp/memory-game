@@ -29,7 +29,7 @@ text-align: right;
 class Game extends React.Component{
   constructor(props){
     super(props)
-    let shuffle = this.shuffle()
+    let shuffle = this.shuffle([])
     this.state = {
 
       // cardNames = ["moni.png","karlk.png","rein.png","maite.png","vale.png","seb.png","dev.png"]
@@ -52,9 +52,6 @@ class Game extends React.Component{
       ],
        score: [0,0], isTurnPlayer1: true,
     }
-  }
-  shuffle(){
-    return [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
   }
 
   flip(i){
