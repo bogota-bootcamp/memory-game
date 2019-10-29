@@ -26,6 +26,14 @@ class Game extends React.Component{
     });
   }
 
+  shuffle(x){
+    let rand = Math.floor(Math.random() * 16)
+    if(x.includes(rand)){this.shuffle(x)}
+    else {x.push(rand)}
+    if(x.length<16){this.shuffle(x)} 
+    return x;
+  }
+
   render(){
     let cards = this.state.cards.map(
       (card, i) =>
