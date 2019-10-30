@@ -1,7 +1,7 @@
 import React from 'react';
 import './Coin.css';
 import styled from 'styled-components';
-import './App.css'
+
 class Coin extends React.Component {
 	constructor(props){
 		super(props);
