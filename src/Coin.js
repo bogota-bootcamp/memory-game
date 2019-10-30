@@ -17,6 +17,7 @@ class Coin extends React.Component {
 		return (
 				<div>
 					<div className="Start">
+					<p><b>Player 1:</b> heads, <b>Player 2</b>: tails</p>
 			            <div className="flip-card">
 				            <div className={this.state.coinActive ? 'flip-card-inner' : 'spinner'} 
 	                			 onClick={this.toggle}>

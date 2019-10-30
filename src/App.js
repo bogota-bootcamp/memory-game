@@ -85,9 +85,10 @@ class Game extends React.Component{
     return (
         <div>
           <div>
-            <Coin />
+            
             <div className="App">
             <Headline>MemoryCard</Headline>
+                <Coin />
                 <MyContainer>
 
                 {cards}
