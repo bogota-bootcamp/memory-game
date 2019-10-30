@@ -3,7 +3,7 @@ import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
 import Coin from './Coin.js'
 import styled from 'styled-components'
-
+import ResetButton from './ResetButton.js'
 
 const MyContainer = styled.div`
 margin: 0 1em;
@@ -79,7 +79,6 @@ class Game extends React.Component{
             <Headline>MemoryCard</Headline>
                 <Coin />
                 <MyContainer>
-
                 {cards}
 
                 <ul>
@@ -88,6 +87,7 @@ class Game extends React.Component{
                 <li>{score}</li>
                 </ul>
                 </MyContainer>
+                <ResetButton />
             </div>
           </div>
        </div>
