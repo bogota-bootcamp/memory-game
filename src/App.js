@@ -79,13 +79,23 @@ class Game extends React.Component{
             <Headline>MemoryCard</Headline>
                 <Coin />
                 <MyContainer>
-                {cards}
-
-                <ul>
-                <li>{status}</li>
-                <li>{move}</li>
-                <li>{score}</li>
-                </ul>
+                  <div>
+                    {cards.slice(0,4)}
+                  </div>
+                  <div>
+                    {cards.slice(4,8)}
+                  </div>
+                  <div>
+                    {cards.slice(8,12)}
+                  </div>
+                  <div>
+                    {cards.slice(12,16)}
+                  </div>
+                  <ul>
+                    <li>{status}</li>
+                    <li>{move}</li>
+                    <li>{score}</li>
+                  </ul>
                 </MyContainer>
                 <ResetButton />
             </div>
