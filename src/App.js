@@ -1,7 +1,11 @@
 import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
+import styled from 'styled-components';
+import Coin from './Coin.js'
 
+
+<<<<<<< HEAD
 // import 'rein.png'
 // import 'maite.png'
 // import 'oscar.png'
@@ -12,6 +16,8 @@ import './memorycard.css';
 // import 'devs.png'
 import './Card.css';
 import styled from 'styled-components'
+=======
+>>>>>>> 09bd71e9d4230170c223c9815a3cb16e012feda3
 
 
 
@@ -39,7 +45,14 @@ class Game extends React.Component{
   constructor(props){
     super(props)
     let shuffle = this.shuffle([])
+    this.cardNames = ["moni.png","karl.png","rein.png","maite.png","val.png","seb.png","devs.png","oscar.png",
+                      "moni.png","karl.png","rein.png","maite.png","val.png","seb.png","devs.png","oscar.png"]
+    let carArr = []
+    this.cardNames.forEach((cards,i) => {
+      carArr.push({face: this.cardNames[shuffle[i]], down: true, position: shuffle[i]}) 
+    })
     this.state = {
+<<<<<<< HEAD
       heads: false,
       // cardNames = ["moni.png","karlk.png","rein.png","maite.png","vale.png","seb.png","dev.png"]
       cards: [{face: "cat.png", down: false, position: shuffle[0]},
@@ -59,6 +72,9 @@ class Game extends React.Component{
               {face: "cat.png", down: false, position: shuffle[14]},
               {face: "cat.png", down: false, position: shuffle[15]}
       ],
+=======
+      cards: carArr,
+>>>>>>> 09bd71e9d4230170c223c9815a3cb16e012feda3
        score: [0,0], isTurnPlayer1: true,
     }
   }
@@ -83,9 +99,11 @@ class Game extends React.Component{
     let cards = this.state.cards.map(
       (card, i) =>
       <MemoryCard
-      key={i} face={card.face}
+      key={i} 
+      face={card.face}
       onClick={() => this.flip(i)}
-      cardback={card.down}/>
+      cardback={card.down}
+      position = {card.position}/>
 
     )
     let status = "next player: " + (this.state.isTurnPlayer1 ? "player 1" : "player 2")
@@ -94,6 +112,7 @@ class Game extends React.Component{
 
     return (
         <div>
+<<<<<<< HEAD
         <div className="App">
         <Headline>MemoryCard</Headline>
             <MyContainer>
@@ -127,7 +146,26 @@ class Game extends React.Component{
 
 
             </div>
+=======
+          <div>
+            
+            <div className="App">
+            <Headline>MemoryCard</Headline>
+                <Coin />
+                <MyContainer>
+
+                {cards}
+
+                <ul>
+                <li>{status}</li>
+                <li>{move}</li>
+                <li>{score}</li>
+                </ul>
+                </MyContainer>
+>>>>>>> 09bd71e9d4230170c223c9815a3cb16e012feda3
             </div>
+          </div>
+       </div>
 
       );
     }
