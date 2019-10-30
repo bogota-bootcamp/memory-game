@@ -2,14 +2,14 @@ import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
 
-import 'rein.png'
-import 'maite.png'
-import 'oscar.png'
-import 'valeria.png'
-import 'seb.png'
-import 'val.png'
-import 'karl.png'
-import 'devs.png'
+// import 'rein.png'
+// import 'maite.png'
+// import 'oscar.png'
+// import 'valeria.png'
+// import 'seb.png'
+// import 'val.png'
+// import 'karl.png'
+// import 'devs.png'
 import './Card.css';
 import styled from 'styled-components'
 
@@ -40,7 +40,7 @@ class Game extends React.Component{
     super(props)
     let shuffle = this.shuffle([])
     this.state = {
-
+      heads: false,
       // cardNames = ["moni.png","karlk.png","rein.png","maite.png","vale.png","seb.png","dev.png"]
       cards: [{face: "cat.png", down: false, position: shuffle[0]},
               {face: "cat.png", down: false, position: shuffle[1]},
@@ -112,11 +112,11 @@ class Game extends React.Component{
           <div className="App">
             <div className="flip-card">
             <div className="flip-card-inner">
-              <div className="flip-card-front">
+              <div className="flip-card-front not-me">
               <img src="https://i.colnect.net/f/1175/001/1-Dollar-1-st-president-George-Washington-1789-1797-back.jpg"/>
 
               </div>
-              <div className="flip-card-back">
+              <div className="flip-card-back  ">
                 <img src="https://i.colnect.net/f/1175/004/1-Dollar-4-th-president-James-Madison-1809-1817.jpg" />
                 <p>Architect & Engineer</p>
                 <p>We love that guy</p>

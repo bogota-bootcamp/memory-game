@@ -1,0 +1,6 @@
+<button type="button" id="coinImage"
+class="FlipCoinPage__coin FlipCoinPage__coin--tails"
+data-testid="FlipCoinPage__coin">
+<img class="FlipCoinPage__coin-side FlipCoinPage__coin-side--heads" src="/static/media/heads.08d1cc79.png" alt="heads">
+<img class="FlipCoinPage__coin-side FlipCoinPage__coin-side--tails" src="/static/media/tails.20df3dcf.png" alt="tails">
+</button>
