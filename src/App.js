@@ -1,19 +1,8 @@
 import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
-
-import 'rein.png'
-import 'maite.png'
-import 'oscar.png'
-import 'valeria.png'
-import 'seb.png'
-import 'val.png'
-import 'karl.png'
-import 'devs.png'
-import './Card.css';
+import Card from './Card.css';
 import styled from 'styled-components'
-
-
 
 
 const MyContainer = styled.div`
@@ -41,23 +30,23 @@ class Game extends React.Component{
     let shuffle = this.shuffle([])
     this.state = {
 
-      // cardNames = ["moni.png","karlk.png","rein.png","maite.png","vale.png","seb.png","dev.png"]
-      cards: [{face: "cat.png", down: false, position: shuffle[0]},
-              {face: "cat.png", down: false, position: shuffle[1]},
-              {face: "cat.png", down: false, position: shuffle[2]},
-              {face: "cat.png", down: false, position: shuffle[3]},
-              {face: "cat.png", down: false, position: shuffle[4]},
-              {face: "cat.png", down: false, position: shuffle[5]},
-              {face: "cat.png", down: false, position: shuffle[6]},
-              {face: "cat.png", down: false, position: shuffle[7]},
-              {face: "cat.png", down: false, position: shuffle[8]},
-              {face: "cat.png", down: false, position: shuffle[9]},
-              {face: "cat.png", down: false, position: shuffle[10]},
-              {face: "cat.png", down: false, position: shuffle[11]},
-              {face: "cat.png", down: false, position: shuffle[12]},
-              {face: "cat.png", down: false, position: shuffle[13]},
-              {face: "cat.png", down: false, position: shuffle[14]},
-              {face: "cat.png", down: false, position: shuffle[15]}
+      // cardNames = ["oscar.png","moni.png","karlk.png","rein.png","maite.png","vale.png","seb.png","dev.png"]
+      cards: [{face: "moni.png", down: false, position: shuffle[0]},
+              {face: "rein.png", down: false, position: shuffle[1]},
+              {face: "maite.png", down: false, position: shuffle[2]},
+              {face: "moni.png", down: false, position: shuffle[3]},
+              {face: "seb.png", down: false, position: shuffle[4]},
+              {face: "devs.png", down: false, position: shuffle[5]},
+              {face: "val.png", down: false, position: shuffle[6]},
+              {face: "rein.png", down: false, position: shuffle[7]},
+              {face: "karl.png", down: false, position: shuffle[8]},
+              {face: "maite.png", down: false, position: shuffle[9]},
+              {face: "val.png", down: false, position: shuffle[10]},
+              {face: "devs.png", down: false, position: shuffle[11]},
+              {face: "seb.png", down: false, position: shuffle[12]},
+              {face: "karl.png", down: false, position: shuffle[13]},
+              {face: "oscar.png", down: false, position: shuffle[14]},
+              {face: "oscar.png", down: false, position: shuffle[15]}
       ],
        score: [0,0], isTurnPlayer1: true,
     }
