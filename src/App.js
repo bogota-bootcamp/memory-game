@@ -1,8 +1,10 @@
 import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
-
+import styled from 'styled-components';
+import Coin from './Coin.js'
 import styled from 'styled-components'
+
 
 
 
@@ -75,40 +77,24 @@ class Game extends React.Component{
 
     return (
         <div>
-        <div className="App">
-        <Headline>MemoryCard</Headline>
-            <MyContainer>
+          <div>
+            
+            <div className="App">
+            <Headline>MemoryCard</Headline>
+                <Coin />
+                <MyContainer>
 
-            {cards}
+                {cards}
 
-            <ul>
-            <li>{status}</li>
-            <li>{move}</li>
-            <li>{score}</li>
-            </ul>
-            </MyContainer>
-        </div>
-
-
-          <div className="App">
-            <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-              <img src="https://i.colnect.net/f/1175/001/1-Dollar-1-st-president-George-Washington-1789-1797-back.jpg"/>
-
-              </div>
-              <div className="flip-card-back">
-                <img src="https://i.colnect.net/f/1175/004/1-Dollar-4-th-president-James-Madison-1809-1817.jpg" />
-                <p>Architect & Engineer</p>
-                <p>We love that guy</p>
-              </div>
+                <ul>
+                <li>{status}</li>
+                <li>{move}</li>
+                <li>{score}</li>
+                </ul>
+                </MyContainer>
             </div>
-            </div>
-
-
-
-            </div>
-            </div>
+          </div>
+       </div>
 
       );
     }
