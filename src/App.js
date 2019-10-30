@@ -3,7 +3,7 @@ import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
 import styled from 'styled-components';
 import Coin from './Coin.js'
-import styled from 'styled-components'
+
 
 
 
