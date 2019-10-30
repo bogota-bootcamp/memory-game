@@ -28,7 +28,7 @@ class Coin extends React.Component {
 				                <img src="https://i.colnect.net/f/1175/004/1-Dollar-4-th-president-James-Madison-1809-1817.jpg" />
 				              </div> 
 				            </div>
-				            <button onClick={() => {document.getElementsByClassName("Start")[0].style.display = "none"}}>Start</button>
+				            <button onClick={() => {document.getElementsByClassName("Start")[0].style.display = "none"}} className="start-button">Start</button>
 			            </div>
 		            </div>
 	            </div>

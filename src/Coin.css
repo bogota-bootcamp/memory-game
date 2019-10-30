@@ -57,3 +57,14 @@
   color: white;
 
 }
+
+.start-button{
+  height: 60px;
+  width: 80px;
+  background-color: green;
+  color: white;
+  border-color: black;
+  border-radius: 10px;
+  font-size: 20px;
+  font-style: italic;
+}

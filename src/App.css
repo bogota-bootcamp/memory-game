@@ -20,3 +20,15 @@
 .App-link {
   color: #09d3ac;
 }
+
+.reset-button{
+  height: 50px;
+  width: 70px;
+  background-color: red;
+  color: white;
+  border-color: black;
+  border-radius: 10px;
+  font-size: 20px;
+  font-style: italic;
+}
+
