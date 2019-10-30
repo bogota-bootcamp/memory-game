@@ -1,7 +1,7 @@
 import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
-import Card from './Card.css';
+import Coin from './Coin.js'
 import styled from 'styled-components'
 
 
@@ -28,26 +28,14 @@ class Game extends React.Component{
   constructor(props){
     super(props)
     let shuffle = this.shuffle([])
+    this.cardNames = ["moni.png","karl.png","rein.png","maite.png","val.png","seb.png","devs.png","oscar.png",
+                      "moni.png","karl.png","rein.png","maite.png","val.png","seb.png","devs.png","oscar.png"]
+    let carArr = []
+    this.cardNames.forEach((cards,i) => {
+      carArr.push({face: this.cardNames[shuffle[i]], down: true, position: shuffle[i]})
+    })
     this.state = {
-
-      // cardNames = ["oscar.png","moni.png","karlk.png","rein.png","maite.png","vale.png","seb.png","dev.png"]
-      cards: [{face: "moni.png", down: false, position: shuffle[0]},
-              {face: "rein.png", down: false, position: shuffle[1]},
-              {face: "maite.png", down: false, position: shuffle[2]},
-              {face: "moni.png", down: false, position: shuffle[3]},
-              {face: "seb.png", down: false, position: shuffle[4]},
-              {face: "devs.png", down: false, position: shuffle[5]},
-              {face: "val.png", down: false, position: shuffle[6]},
-              {face: "rein.png", down: false, position: shuffle[7]},
-              {face: "karl.png", down: false, position: shuffle[8]},
-              {face: "maite.png", down: false, position: shuffle[9]},
-              {face: "val.png", down: false, position: shuffle[10]},
-              {face: "devs.png", down: false, position: shuffle[11]},
-              {face: "seb.png", down: false, position: shuffle[12]},
-              {face: "karl.png", down: false, position: shuffle[13]},
-              {face: "oscar.png", down: false, position: shuffle[14]},
-              {face: "oscar.png", down: false, position: shuffle[15]}
-      ],
+      cards: carArr,
        score: [0,0], isTurnPlayer1: true,
     }
   }
@@ -72,9 +60,11 @@ class Game extends React.Component{
     let cards = this.state.cards.map(
       (card, i) =>
       <MemoryCard
-      key={i} face={card.face}
+      key={i}
+      face={card.face}
       onClick={() => this.flip(i)}
-      cardback={card.down}/>
+      cardback={card.down}
+      position = {card.position}/>
 
     )
     let status = "next player: " + (this.state.isTurnPlayer1 ? "player 1" : "player 2")
@@ -83,40 +73,24 @@ class Game extends React.Component{
 
     return (
         <div>
-        <div className="App">
-        <Headline>MemoryCard</Headline>
-            <MyContainer>
+          <div>
 
-            {cards}
+            <div className="App">
+            <Headline>MemoryCard</Headline>
+                <Coin />
+                <MyContainer>
 
-            <ul>
-            <li>{status}</li>
-            <li>{move}</li>
-            <li>{score}</li>
-            </ul>
-            </MyContainer>
-        </div>
+                {cards}
 
-
-          <div className="App">
-            <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-              <img src="https://i.colnect.net/f/1175/001/1-Dollar-1-st-president-George-Washington-1789-1797-back.jpg"/>
-
-              </div>
-              <div className="flip-card-back">
-                <img src="https://i.colnect.net/f/1175/004/1-Dollar-4-th-president-James-Madison-1809-1817.jpg" />
-                <p>Architect & Engineer</p>
-                <p>We love that guy</p>
-              </div>
+                <ul>
+                <li>{status}</li>
+                <li>{move}</li>
+                <li>{score}</li>
+                </ul>
+                </MyContainer>
             </div>
-            </div>
-
-
-
-            </div>
-            </div>
+          </div>
+       </div>
 
       );
     }
