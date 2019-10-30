@@ -2,15 +2,6 @@ import React from 'react';
 import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
 
-import 'rein.png'
-import 'maite.png'
-import 'oscar.png'
-import 'valeria.png'
-import 'seb.png'
-import 'val.png'
-import 'karl.png'
-import 'devs.png'
-import './Card.css';
 import styled from 'styled-components'
 
 
@@ -42,22 +33,22 @@ class Game extends React.Component{
     this.state = {
 
       // cardNames = ["moni.png","karlk.png","rein.png","maite.png","vale.png","seb.png","dev.png"]
-      cards: [{face: "cat.png", down: false, position: shuffle[0]},
-              {face: "cat.png", down: false, position: shuffle[1]},
-              {face: "cat.png", down: false, position: shuffle[2]},
-              {face: "cat.png", down: false, position: shuffle[3]},
-              {face: "cat.png", down: false, position: shuffle[4]},
-              {face: "cat.png", down: false, position: shuffle[5]},
-              {face: "cat.png", down: false, position: shuffle[6]},
-              {face: "cat.png", down: false, position: shuffle[7]},
-              {face: "cat.png", down: false, position: shuffle[8]},
-              {face: "cat.png", down: false, position: shuffle[9]},
-              {face: "cat.png", down: false, position: shuffle[10]},
-              {face: "cat.png", down: false, position: shuffle[11]},
-              {face: "cat.png", down: false, position: shuffle[12]},
-              {face: "cat.png", down: false, position: shuffle[13]},
-              {face: "cat.png", down: false, position: shuffle[14]},
-              {face: "cat.png", down: false, position: shuffle[15]}
+      cards: [{face: "rein.png", down: true, position: shuffle[0]},
+              {face: "maite.png", down: true, position: shuffle[1]},
+              {face: "karl.png", down: true, position: shuffle[2]},
+              {face: "moni.png", down: true, position: shuffle[3]},
+              {face: "seb.png", down: true, position: shuffle[4]},
+              {face: "val.png", down: true, position: shuffle[5]},
+              {face: "oscar.png", down: true, position: shuffle[6]},
+              {face: "devs.png", down: true, position: shuffle[7]},
+              {face: "rein.png", down: true, position: shuffle[8]},
+              {face: "maite.png", down: true, position: shuffle[9]},
+              {face: "karl.png", down: true, position: shuffle[10]},
+              {face: "val.png", down: true, position: shuffle[11]},
+              {face: "oscar.png", down: true, position: shuffle[12]},
+              {face: "moni.png", down: true, position: shuffle[13]},
+              {face: "devs.png", down: true, position: shuffle[14]},
+              {face: "seb.png", down: true, position: shuffle[15]}
       ],
        score: [0,0], isTurnPlayer1: true,
     }
@@ -83,9 +74,11 @@ class Game extends React.Component{
     let cards = this.state.cards.map(
       (card, i) =>
       <MemoryCard
-      key={i} face={card.face}
+      key={i} 
+      face={card.face}
       onClick={() => this.flip(i)}
-      cardback={card.down}/>
+      cardback={card.down}
+      position = {card.position}/>
 
     )
     let status = "next player: " + (this.state.isTurnPlayer1 ? "player 1" : "player 2")

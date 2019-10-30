@@ -3,9 +3,12 @@ import React from 'react';
 function MemoryCard(props){
 
   return (
-    <img className="my-card"
-    onClick={props.onClick}
-    src={props.face} />
+    <div>
+      <img className="my-card"
+      onClick={props.onClick}
+      src={props.cardback ? 'back.png' :props.face} />
+      <p>{props.position}</p>
+    </div>
   )
 }
 
