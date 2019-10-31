@@ -42,7 +42,7 @@ class Game extends React.Component{
        score: [0,0], 
        isTurnPlayer1: true,
        cardsTurnedCount: 1,
-       pair: []
+       pair: [],
        isfliped: false
     }
   }
