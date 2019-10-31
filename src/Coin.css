@@ -4,7 +4,7 @@
   width: 100%;
   height: 300%;
   text-align: center;
-  
+
 }
 
 .flip-card {
@@ -59,8 +59,8 @@
 }
 
 .start-button{
-  height: px;
-  width: 80px;
+  height: 100px;
+  width: 200px;
   background-color: green;
   color: white;
   border-color: black;
@@ -71,5 +71,5 @@
 
 .redcoin {
   height: 300px;
-
+  width: 150;
 }
