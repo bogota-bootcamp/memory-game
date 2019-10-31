@@ -40,6 +40,7 @@ class Game extends React.Component{
        isTurnPlayer1: true,
        cardsTurnedCount: 1,
        pair: []
+       isfliped: false
     }
   }
 
@@ -49,6 +50,7 @@ class Game extends React.Component{
     this.setState({
       cards: copy
     });
+    // () => document.getElementsByClassName("Start")[0].style.display = "none";
   }
 
   cardsTurnedHandler(face){
