@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin-right: 100px
+
 }
 
 .App-logo {
@@ -31,4 +33,3 @@
   font-size: 20px;
   font-style: italic;
 }
-
