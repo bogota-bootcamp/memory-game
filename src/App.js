@@ -38,8 +38,11 @@ class Game extends React.Component{
       carArr.push({face: this.cardNames[shuffle[i]], down: true, position: shuffle[i]})
     })
     this.state = {
-      cards: carArr,
-       score: [0,0], isTurnPlayer1: true,
+       cards: carArr,
+       score: [0,0], 
+       isTurnPlayer1: true,
+       cardsTurnedCount: 1,
+       pair: []
        isfliped: false
     }
   }
@@ -51,6 +54,40 @@ class Game extends React.Component{
       cards: copy
     });
     // () => document.getElementsByClassName("Start")[0].style.display = "none";
+  }
+
+  cardsTurnedHandler(face){
+    console.log(this.state.pair)
+    let newPair = this.state.pair.slice();
+    newPair.push(face);
+    this.setState({pair: newPair}, () => {
+      if(this.state.cardsTurnedCount === 2){
+        this.setState({cardsTurnedCount: 1});
+        this.matchHandler(face);
+        }
+      else {
+        this.setState({cardsTurnedCount: this.state.cardsTurnedCount + 1});
+      }
+    })
+  }
+
+
+  matchHandler(face){
+    if(this.state.pair[0]===this.state.pair[1]){
+      console.log("match");
+      let x = this.state.isTurnPlayer1 ? 0 : 1;
+      let updatedScore = this.state.score[x] + 1;
+      let newScoreArray = this.state.score.slice();
+      newScoreArray[x] = updatedScore;
+      this.setState({score: newScoreArray, pair: []}, () => console.log(this.state.score));
+      //keep cards open (Karl's function will be called here)
+      //keep turn (nothing to do, isTurnPlayer1 stays unchanged)
+      //update scoreboard with Valeria's function
+    }
+    else {
+      console.log("no match");
+      this.setState({isTurnPlayer1: !this.state.isTurnPlayer1, pair: []});
+    }
   }
 
   shuffle(x){
@@ -67,7 +104,10 @@ class Game extends React.Component{
       <MemoryCard
       key={i}
       face={card.face}
-      onClick={() => this.flip(i)}
+      onClick={() => {
+        this.flip(i);
+        this.cardsTurnedHandler(card.face);
+      }}
       cardback={card.down}
       position = {card.position}/>
 
