@@ -10,7 +10,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 200vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,17 +19,45 @@
   color: white;
 }
 
+.start {
+  width:100%;
+  height:300%;
+}
+
 .App-link {
   color: #09d3ac;
 }
 
 .reset-button{
   height: 50px;
-  width: 70px;
+  width: 100px;
   background-color: red;
   color: white;
   border-color: black;
   border-radius: 10px;
   font-size: 20px;
   font-style: italic;
+}
+
+h1 {
+  text-align: center;
+  color: #F0C013;
+  font-size: 60px;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+}
+
+h3 {
+  font-weight: bold;
+  text-align: center;
+  color: yellow;
+  font-size: 30px;
+}
+
+body {
+  background: #F0C013;
 }
