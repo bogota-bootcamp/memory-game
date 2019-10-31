@@ -37,6 +37,7 @@ class Game extends React.Component{
     this.state = {
       cards: carArr,
        score: [0,0], isTurnPlayer1: true,
+       isfliped: false
     }
   }
 
@@ -46,6 +47,7 @@ class Game extends React.Component{
     this.setState({
       cards: copy
     });
+    // () => document.getElementsByClassName("Start")[0].style.display = "none";
   }
 
   shuffle(x){
