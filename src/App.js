@@ -117,18 +117,12 @@ class Game extends React.Component{
     return (
         <div>
           <div>
-
             <div className="App">
             <Headline>MemoryCard</Headline>
                 <Coin />
                 <MyContainer>
                   <div className="row">
                     {cards.slice(0,2)}
-
-
-                  <div>
-                    {cards.slice(0,4)}
-
                   </div>
                   <div className="row">
                     {cards.slice(2,4)}
@@ -151,13 +145,9 @@ class Game extends React.Component{
                   <div className="row">
                     {cards.slice(14,16)}
                   </div>
-                  <ul>
-
-                  </ul>
                 </MyContainer>
-
                 <div>
-                <Tablero/>
+                  <Tablero />
                 </div>
             </div>
           </div>
