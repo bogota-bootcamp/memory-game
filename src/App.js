@@ -52,25 +52,37 @@ class Game extends React.Component{
   }
 
   cardsTurnedHandler(face){
+    console.log(this.state.pair)
     let newPair = this.state.pair.slice();
     newPair.push(face);
     this.setState({pair: newPair}, () => {
-    console.log(this.state.pair);
-    
-    if(this.state.cardsTurnedCount === 2){
-      this.setState({cardsTurnedCount: 1});
-      this.matchHandler(face);
+      if(this.state.cardsTurnedCount === 2){
+        this.setState({cardsTurnedCount: 1});
+        this.matchHandler(face);
+        }
+      else {
+        this.setState({cardsTurnedCount: this.state.cardsTurnedCount + 1});
       }
-    else {
-      this.setState({cardsTurnedCount: this.state.cardsTurnedCount + 1});
-    }
-  })
+    })
   }
 
 
   matchHandler(face){
-    //here goes the comparison of this.state.pair
-    this.setState({isTurnPlayer1: !this.state.isTurnPlayer1})
+    if(this.state.pair[0]===this.state.pair[1]){
+      console.log("match");
+      let x = this.state.isTurnPlayer1 ? 0 : 1;
+      let updatedScore = this.state.score[x] + 1;
+      let newScoreArray = this.state.score.slice();
+      newScoreArray[x] = updatedScore;
+      this.setState({score: newScoreArray, pair: []}, () => console.log(this.state.score));
+      //keep cards open (Karl's function will be called here)
+      //keep turn (nothing to do, isTurnPlayer1 stays unchanged)
+      //update scoreboard with Valeria's function
+    }
+    else {
+      console.log("no match");
+      this.setState({isTurnPlayer1: !this.state.isTurnPlayer1, pair: []});
+    }
   }
 
   shuffle(x){
