@@ -14,8 +14,9 @@ float: left;
 `
 
 const Headline = styled.h2`
-color purple;
-background: gray;
+color yellow;
+background: black;
+font-size: 80px;
 `
 const Stats = styled.ul`
 border: 1px solid black;
@@ -79,17 +80,29 @@ class Game extends React.Component{
             <Headline>MemoryCard</Headline>
                 <Coin />
                 <MyContainer>
-                  <div>
-                    {cards.slice(0,4)}
+                  <div className="row">
+                    {cards.slice(0,2)}
                   </div>
-                  <div>
-                    {cards.slice(4,8)}
+                  <div className="row">
+                    {cards.slice(2,4)}
                   </div>
-                  <div>
-                    {cards.slice(8,12)}
+                  <div className="row">
+                    {cards.slice(4,6)}
                   </div>
-                  <div>
-                    {cards.slice(12,16)}
+                  <div className="row">
+                    {cards.slice(6,8)}
+                  </div>
+                  <div className="row">
+                    {cards.slice(8,10)}
+                  </div>
+                  <div className="row">
+                    {cards.slice(10,12)}
+                  </div>
+                  <div className="row">
+                    {cards.slice(12,14)}
+                  </div>
+                  <div className="row">
+                    {cards.slice(14,16)}
                   </div>
                   <ul>
                     <li>{status}</li>
