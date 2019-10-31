@@ -46,6 +46,10 @@ class Game extends React.Component{
     this.setState({
       cards: copy
     });
+    setTimeout(() => {
+        copy[i].down = true
+        this.setState({cards: copy});
+    },1000)
   }
 
   shuffle(x){
