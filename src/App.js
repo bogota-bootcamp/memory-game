@@ -35,8 +35,11 @@ class Game extends React.Component{
       carArr.push({face: this.cardNames[shuffle[i]], down: true, position: shuffle[i]})
     })
     this.state = {
-      cards: carArr,
-       score: [0,0], isTurnPlayer1: true,
+       cards: carArr,
+       score: [0,0], 
+       isTurnPlayer1: true,
+       cardsTurnedCount: 1,
+       pair: []
     }
   }
 
@@ -46,6 +49,28 @@ class Game extends React.Component{
     this.setState({
       cards: copy
     });
+  }
+
+  cardsTurnedHandler(face){
+    let newPair = this.state.pair.slice();
+    newPair.push(face);
+    this.setState({pair: newPair}, () => {
+    console.log(this.state.pair);
+    
+    if(this.state.cardsTurnedCount === 2){
+      this.setState({cardsTurnedCount: 1});
+      this.matchHandler(face);
+      }
+    else {
+      this.setState({cardsTurnedCount: this.state.cardsTurnedCount + 1});
+    }
+  })
+  }
+
+
+  matchHandler(face){
+    //here goes the comparison of this.state.pair
+    this.setState({isTurnPlayer1: !this.state.isTurnPlayer1})
   }
 
   shuffle(x){
@@ -62,7 +87,10 @@ class Game extends React.Component{
       <MemoryCard
       key={i}
       face={card.face}
-      onClick={() => this.flip(i)}
+      onClick={() => {
+        this.flip(i);
+        this.cardsTurnedHandler(card.face);
+      }}
       cardback={card.down}
       position = {card.position}/>
 
