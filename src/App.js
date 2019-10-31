@@ -4,6 +4,7 @@ import './memorycard.css';
 import Coin from './Coin.js'
 import styled from 'styled-components'
 import ResetButton from './ResetButton.js'
+import Tablero from './Tablero.js'
 
 const MyContainer = styled.div`
 margin: 0 1em;
@@ -11,6 +12,7 @@ border: 1px solid black
 padding: 0.25em 1em;
 display: flex;
 float: left;
+margin-left: 200px
 `
 
 const Headline = styled.h2`
@@ -38,6 +40,7 @@ class Game extends React.Component{
     this.state = {
       cards: carArr,
        score: [0,0], isTurnPlayer1: true,
+       isfliped: false
     }
   }
 
@@ -47,6 +50,7 @@ class Game extends React.Component{
     this.setState({
       cards: copy
     });
+    // () => document.getElementsByClassName("Start")[0].style.display = "none";
   }
 
   shuffle(x){
@@ -68,9 +72,7 @@ class Game extends React.Component{
       position = {card.position}/>
 
     )
-    let status = "next player: " + (this.state.isTurnPlayer1 ? "player 1" : "player 2")
-    let move = "player 1 is on move{a}"
-    let score = "player 1: x point"
+
 
     return (
         <div>
@@ -82,6 +84,11 @@ class Game extends React.Component{
                 <MyContainer>
                   <div className="row">
                     {cards.slice(0,2)}
+
+
+                  <div>
+                    {cards.slice(0,4)}
+
                   </div>
                   <div className="row">
                     {cards.slice(2,4)}
@@ -105,13 +112,17 @@ class Game extends React.Component{
                     {cards.slice(14,16)}
                   </div>
                   <ul>
-                    <li>{status}</li>
-                    <li>{move}</li>
-                    <li>{score}</li>
+
                   </ul>
                 </MyContainer>
-                <ResetButton />
+
+                <div>
+                <Tablero/>
+                </div>
             </div>
+          </div>
+          <div>
+          <ResetButton />
           </div>
        </div>
 
