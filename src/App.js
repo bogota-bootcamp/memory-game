@@ -41,19 +41,37 @@ class Game extends React.Component{
        isTurnPlayer1: true,
        cardsTurnedCount: 1,
        pair: [],
-       isfliped: false
+       isfliped: false,
+       pairIndex: []
     }
   }
 
   flip(i){
     let copy = this.state.cards.slice();
-    copy[i].down = !copy[i].down
-    this.setState({
-      cards: copy
-    });
-    // () => document.getElementsByClassName("Start")[0].style.display = "none";
+    let copy_pairIndex = this.state.pairIndex.slice();
+    copy_pairIndex.push(i)
+    if (copy[i].down === true){    
+      copy[i].down = !copy[i].down
+      this.setState({
+        cards: copy,
+        pairIndex: copy_pairIndex
+      });
+      // () => document.getElementsByClassName("Start")[0].style.display = "none";
+    } 
   }
-
+  
+  FlipsBack(arr){
+    let Flipcopy = this.state.cards.slice();
+      // Flipcopy[arr[0]].down = !Flipcopy[arr[0]].down
+      // Flipcopy[arr[1]].down = !Flipcopy[arr[1]].down
+      setTimeout(() => { 
+        Flipcopy[arr[0]].down =true
+        Flipcopy[arr[1]].down = true
+        this.setState({
+        cards: Flipcopy});
+    }, 2000)
+  }
+  
   cardsTurnedHandler(face){
     console.log(this.state.pair)
     let newPair = this.state.pair.slice();
@@ -73,10 +91,10 @@ class Game extends React.Component{
   matchHandler(face){
     if(this.state.pair[0]===this.state.pair[1]){
       console.log("match");
-      let x = this.state.isTurnPlayer1 ? 0 : 1;
-      let updatedScore = this.state.score[x] + 1;
+      let player = this.state.isTurnPlayer1 ? 0 : 1;
+      let updatedScore = this.state.score[player] + 1;
       let newScoreArray = this.state.score.slice();
-      newScoreArray[x] = updatedScore;
+      newScoreArray[player] = updatedScore;
       this.setState({score: newScoreArray, pair: []}, () => console.log(this.state.score));
       //keep cards open (Karl's function will be called here)
       //keep turn (nothing to do, isTurnPlayer1 stays unchanged)
@@ -84,8 +102,10 @@ class Game extends React.Component{
     }
     else {
       console.log("no match");
+      this.FlipsBack(this.state.pairIndex)
       this.setState({isTurnPlayer1: !this.state.isTurnPlayer1, pair: []});
     }
+    this.setState({pairIndex: []})
   }
 
   shuffle(x){
@@ -118,7 +138,7 @@ class Game extends React.Component{
             <div className="App">
             <Headline>MemoryCard</Headline>
                 <Coin />
-                <Tablero />
+                <Tablero score={this.state.score}/>
                 
     
                 <MyContainer>
