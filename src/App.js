@@ -40,6 +40,7 @@ class Game extends React.Component{
        cardsTurnedCount: 1,
        pair: [],
        isfliped: false,
+       winner: null,
        pairIndex: []
     }
   }
@@ -165,44 +166,36 @@ class Game extends React.Component{
             <div className="App">
             <Headline>MemoryCard</Headline>
                 <Coin />
-                <Tablero score={this.state.score}/>
-                
-    
-
-     
-                <MyContainer>
-
-                  <div className="row">
-                    {cards.slice(0,2)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(2,4)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(4,6)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(6,8)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(8,10)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(10,12)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(12,14)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(14,16)}
-                  </div>
-                </MyContainer>
-
+                <Tablero turn={this.state.isTurnPlayer1} score1={this.state.score[0]}  score2={this.state.score[1]}  winner={this.state.winner}/>
+                  <MyContainer>
+                    <div className="row">
+                      {cards.slice(0,2)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(2,4)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(4,6)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(6,8)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(8,10)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(10,12)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(12,14)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(14,16)}
+                    </div>
+                  </MyContainer>
             </div>
           </div>
-
        </div>
-
       );
     }
 }

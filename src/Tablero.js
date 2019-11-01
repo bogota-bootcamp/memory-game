@@ -5,9 +5,12 @@ import ResetButton from './ResetButton.js'
 
 
 function Tablero(props) {
-  let status = "next player: " + (props.isTurnPlayer1 ? "player 1" : "player 2")
-  let move = "player 1 is on move{}"
+  let status =  (props.turn ? "player 1" : "player 2")
+  let move = "player 1 is on move"
   let score = "player 1: x point"
+  let player1= "player 1"
+  let player2= "player 2"
+  console.log(props.score);
 
   return(
     <div>
@@ -16,21 +19,26 @@ function Tablero(props) {
         <thead>
           <tr><th className="center">GAME IS READY</th></tr>
           <tr>
-            <th> SCORE</th>
             <th> PLAYERS</th>
+            <th> SCORE</th>
           </tr>
-        
+
         </thead>
         <tbody>
-      
+
 
       <tr>
-      <td> </td>
-      <td> </td>
+      <td>{player1}{(props.turn ? "'s turn" : "")}</td>
+      <td>{props.score1} </td>
       </tr>
 
       <tr>
-      <td></td>
+      <td>{player2}{(props.turn ? "" : "'s turn")}</td>
+      <td>{props.score2}</td>
+      </tr>
+
+      <tr>
+      <td>Winner</td>
       <td></td>
       </tr>
       </tbody>
