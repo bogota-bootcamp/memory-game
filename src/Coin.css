@@ -39,6 +39,7 @@
 .flip-card-front {
   background-color: #bbb;
   color: black;
+  transform: rotateY(180deg);
 }
 
 /* .not-me {
