@@ -24,7 +24,11 @@ class Coin extends React.Component {
 			//ejemplo:  coin[0] --> image de Washington
 			//          coin[1] --> imagen de James Madison
 			console.log("["+rand+"]["+selectedImage+"]")
-			this.setState({currentState: selectedImage});
+
+			let coins = this.state.coins.slice()
+			coins.splice( rand, 1 );
+			coins.push(selectedImage)
+			this.setState({currentState: selectedImage, coins: coins});
 			this.isfliped = true
 		}
 	}
@@ -40,10 +44,10 @@ class Coin extends React.Component {
 				            <div className={this.state.coinActive ? 'flip-card-inner' : 'spinner'}
 	                			 onClick={() => this.flipCoin()}>
 				            	<div className="flip-card-front redcoin">
-				            		<img src={this.getCoin(1)} alt="" />
+				            		<img src={this.state.coins[0]} alt="" />
 				            	</div>
 					            <div className="flip-card-back redcoin">
-					              <img src={this.getCoin(0)} alt="" />
+					              <img src={this.state.coins[1]} alt="" />
 					            </div>
 				            </div>
 				            <button onClick={() => {document.getElementsByClassName("Start")[0].style.display = "none"}} className="start-button">Start</button>
