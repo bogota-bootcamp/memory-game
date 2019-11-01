@@ -3,7 +3,6 @@ import MemoryCard from './MemoryCard.js';
 import './memorycard.css';
 import Coin from './Coin.js'
 import styled from 'styled-components'
-import ResetButton from './ResetButton.js'
 import Tablero from './Tablero.js'
 
 const MyContainer = styled.div`
@@ -12,7 +11,6 @@ border: 1px solid black
 padding: 0.25em 1em;
 display: flex;
 float: left;
-margin-left: 200px
 `
 
 const Headline = styled.h2`
@@ -120,7 +118,11 @@ class Game extends React.Component{
             <div className="App">
             <Headline>MemoryCard</Headline>
                 <Coin />
+                <Tablero />
+                
+    
                 <MyContainer>
+
                   <div className="row">
                     {cards.slice(0,2)}
                   </div>
@@ -146,14 +148,10 @@ class Game extends React.Component{
                     {cards.slice(14,16)}
                   </div>
                 </MyContainer>
-                <div>
-                  <Tablero />
-                </div>
+          
             </div>
           </div>
-          <div>
-          <ResetButton />
-          </div>
+          
        </div>
 
       );
