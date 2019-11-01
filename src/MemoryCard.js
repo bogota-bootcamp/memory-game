@@ -6,7 +6,7 @@ function MemoryCard(props){
     <div>
       <img className="my-card"
       onClick={props.onClick}
-      src={props.cardback ? 'back.png' :props.face} />
+      src={props.cardback ? 'back.png' :props.face} alt="" />
       <p>{/*props.position*/}</p>
     </div>
   )
