@@ -23,8 +23,6 @@ border: 1px solid black;
 text-align: right;
 `
 
-
-
 class Game extends React.Component{
   constructor(props){
     super(props)
@@ -37,16 +35,47 @@ class Game extends React.Component{
     })
     this.state = {
        cards: carArr,
-       score: [0,0], 
+       score: [0,0],
        isTurnPlayer1: true,
        cardsTurnedCount: 1,
        pair: [],
        isfliped: false,
+       winner: null,
        pairIndex: []
     }
   }
 
-  flip(i){
+  GameOver() {
+     let count = 0;
+     var filtered = this.state.cards.filter(function(card) {
+       if (card.down === false){
+         count++;
+       };
+     });
+     console.log("cards with face up: ", count);
+     return count === this.state.cards.length;
+   }
+
+  WhoWon() {
+      if(this.GameOver()) {
+       //all cards are up
+       let score1 = this.state.score[0];
+       let score2 = this.state.score[1];
+
+       if(score1 > score2) {
+         this.setState({winner: "player 1"})
+         return "Player 1 won"
+       }
+       else {
+         this.setState({winner: "player 2"})
+         return "Player 2 won"
+       }
+    }
+    return ""; //game is not over
+    }
+     
+
+   flip(i){
     let copy = this.state.cards.slice();
     let copy_pairIndex = this.state.pairIndex.slice();
     copy_pairIndex.push(i)
@@ -125,6 +154,7 @@ class Game extends React.Component{
       onClick={() => {
         this.flip(i);
         this.cardsTurnedHandler(card.face);
+        this.WhoWon();
       }}
       cardback={card.down}
       position = {card.position}/>
@@ -138,42 +168,36 @@ class Game extends React.Component{
             <div className="App">
             <Headline>MemoryCard</Headline>
                 <Coin />
-                <Tablero score={this.state.score}/>
-                
-    
-                <MyContainer>
-
-                  <div className="row">
-                    {cards.slice(0,2)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(2,4)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(4,6)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(6,8)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(8,10)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(10,12)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(12,14)}
-                  </div>
-                  <div className="row">
-                    {cards.slice(14,16)}
-                  </div>
-                </MyContainer>
-          
+                <Tablero winner={this.state.winner} turn={this.state.isTurnPlayer1} score1={this.state.score[0]}  score2={this.state.score[1]}  winner={this.state.winner}/>
+                  <MyContainer>
+                    <div className="row">
+                      {cards.slice(0,2)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(2,4)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(4,6)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(6,8)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(8,10)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(10,12)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(12,14)}
+                    </div>
+                    <div className="row">
+                      {cards.slice(14,16)}
+                    </div>
+                  </MyContainer>
             </div>
           </div>
-          
        </div>
-
       );
     }
 }
