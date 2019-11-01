@@ -37,11 +37,12 @@ class Game extends React.Component{
     })
     this.state = {
        cards: carArr,
-       score: [0,0], 
+       score: [0,0],
        isTurnPlayer1: true,
        cardsTurnedCount: 1,
        pair: [],
-       isfliped: false
+       isfliped: false,
+       winner: null
     }
   }
 
@@ -118,10 +119,8 @@ class Game extends React.Component{
             <div className="App">
             <Headline>MemoryCard</Headline>
                 <Coin />
-                <Tablero />
-                
-    
-                <MyContainer>
+                <Tablero score1={this.state.score[0]}  score2={this.state.score[1]}  winner={this.state.winner}/>
+                    <MyContainer>
 
                   <div className="row">
                     {cards.slice(0,2)}
@@ -148,10 +147,10 @@ class Game extends React.Component{
                     {cards.slice(14,16)}
                   </div>
                 </MyContainer>
-          
+
             </div>
           </div>
-          
+
        </div>
 
       );
