@@ -12,6 +12,7 @@ function Tablero(props) {
   let player2= "player 2"
   console.log(props.score);
 
+
   return(
     <div>
       <ResetButton />
@@ -39,7 +40,7 @@ function Tablero(props) {
 
       <tr>
       <td>Winner</td>
-      <td></td>
+      <td>{props.winner === 'null' ? "" : props.winner}</td>
       </tr>
       </tbody>
 

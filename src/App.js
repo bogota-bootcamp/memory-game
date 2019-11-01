@@ -48,10 +48,11 @@ class Game extends React.Component{
   GameOver() {
      let count = 0;
      var filtered = this.state.cards.filter(function(card) {
-       if (card.down === 'false'){
+       if (card.down === false){
          count++;
        };
      });
+     console.log("cards with face up: ", count);
      return count === this.state.cards.length;
    }
 
@@ -153,6 +154,7 @@ class Game extends React.Component{
       onClick={() => {
         this.flip(i);
         this.cardsTurnedHandler(card.face);
+        this.WhoWon();
       }}
       cardback={card.down}
       position = {card.position}/>
@@ -166,7 +168,7 @@ class Game extends React.Component{
             <div className="App">
             <Headline>MemoryCard</Headline>
                 <Coin />
-                <Tablero turn={this.state.isTurnPlayer1} score1={this.state.score[0]}  score2={this.state.score[1]}  winner={this.state.winner}/>
+                <Tablero winner={this.state.winner} turn={this.state.isTurnPlayer1} score1={this.state.score[0]}  score2={this.state.score[1]}  winner={this.state.winner}/>
                   <MyContainer>
                     <div className="row">
                       {cards.slice(0,2)}
