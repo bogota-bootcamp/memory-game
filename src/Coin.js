@@ -9,6 +9,10 @@ class Coin extends React.Component {
 			coins: ["redcoin.jpg", "redcoin_back.jpg" ],
 		} //las imagenes las puse en la class porque el constructor definen las variables, osea las imagenes y todo.
 	}
+	
+	getCoin(i) {
+		return this.state.currentState || this.state.coins[i]
+	}
 
 	flipCoin(){
 		if(! this.isfliped){
@@ -20,6 +24,7 @@ class Coin extends React.Component {
 			//ejemplo:  coin[0] --> image de Washington
 			//          coin[1] --> imagen de James Madison
 			console.log("["+rand+"]["+selectedImage+"]")
+
 			let coins = this.state.coins.slice()
 			coins.splice( rand, 1 );
 			coins.push(selectedImage)
