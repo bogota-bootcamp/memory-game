@@ -46,15 +46,15 @@ class Game extends React.Component{
   GameOver() {
 
      let count = 0;
-     var filtered = this.state.cards.filter ( function ( card ) {
+     let filtered = this.state.cards.filter ( function ( card ) {
        if (card.down === 'false'){
          count++;
        };
      });
      return count === this.state.cards.length;
    }
-    function WhoWon(){
-      if (this.GameOver()) {
+   WhoWon(){
+     if (this.GameOver()) {
        //all cards are up
        let score1 = this.state.score[0];
        let score2 = this.state.score[1];
@@ -62,14 +62,15 @@ class Game extends React.Component{
        if (score1 > score2) {
          this.setState({winner: "player 1"})
          return "Player 1 won"
-       } else {
+       }
+       else {
          this.setState({winner: "player 2"})
          return "Player 2 won"
        }
      }
      return ""; //game is not over
-       }
-     }
+  }
+     
 
    flip(i){
     let copy = this.state.cards.slice();
