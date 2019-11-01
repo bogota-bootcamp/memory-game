@@ -53,15 +53,17 @@ class Game extends React.Component{
      });
      return count === this.state.cards.length;
    }
-    WhoWon(){
+    function WhoWon(){
       if (this.GameOver()) {
        //all cards are up
        let score1 = this.state.score[0];
        let score2 = this.state.score[1];
 
        if (score1 > score2) {
+         this.setState({winner: "player 1"})
          return "Player 1 won"
        } else {
+         this.setState({winner: "player 2"})
          return "Player 2 won"
        }
      }
