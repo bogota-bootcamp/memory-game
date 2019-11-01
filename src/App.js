@@ -37,7 +37,7 @@ class Game extends React.Component{
     })
     this.state = {
        cards: carArr,
-       score: [0,0],
+       score: [1,3],
        isTurnPlayer1: true,
        cardsTurnedCount: 1,
        pair: [],
@@ -119,7 +119,7 @@ class Game extends React.Component{
             <div className="App">
             <Headline>MemoryCard</Headline>
                 <Coin />
-                <Tablero score1={this.state.score[0]}  score2={this.state.score[1]}  winner={this.state.winner}/>
+                <Tablero turn={this.state.isTurnPlayer1} score1={this.state.score[0]}  score2={this.state.score[1]}  winner={this.state.winner}/>
                     <MyContainer>
 
                   <div className="row">

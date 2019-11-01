@@ -5,7 +5,7 @@ import ResetButton from './ResetButton.js'
 
 
 function Tablero(props) {
-  let status =  (props.isTurnPlayer1 ? "player 1" : "player 2")
+  let status =  (props.turn ? "player 1" : "player 2")
   let move = "player 1 is on move"
   let score = "player 1: x point"
   let player1= "player 1"
@@ -28,12 +28,12 @@ function Tablero(props) {
 
 
       <tr>
-      <td>{player1}</td>
+      <td>{player1}{(props.turn ? "'s turn" : "")}</td>
       <td>{props.score1} </td>
       </tr>
 
       <tr>
-      <td>{player2}</td>
+      <td>{player2}{(props.turn ? "" : "'s turn")}</td>
       <td>{props.score2}</td>
       </tr>
 
