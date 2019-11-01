@@ -23,8 +23,6 @@ border: 1px solid black;
 text-align: right;
 `
 
-
-
 class Game extends React.Component{
   constructor(props){
     super(props)
@@ -37,7 +35,7 @@ class Game extends React.Component{
     })
     this.state = {
        cards: carArr,
-       score: [0,0], 
+       score: [0,0],
        isTurnPlayer1: true,
        cardsTurnedCount: 1,
        pair: [],
@@ -45,7 +43,33 @@ class Game extends React.Component{
     }
   }
 
-  flip(i){
+  GameOver() {
+
+     let count = 0;
+     var filtered = this.state.cards.filter ( function ( card ) {
+       if (card.down === 'false'){
+         count++;
+       };
+     });
+     return count === this.state.cards.length;
+   }
+    WhoWon(){
+      if (this.GameOver()) {
+       //all cards are up
+       let score1 = this.state.score[0];
+       let score2 = this.state.score[1];
+
+       if (score1 > score2) {
+         return "Player 1 won"
+       } else {
+         return "Player 2 won"
+       }
+     }
+     return ""; //game is not over
+       }
+     }
+
+   flip(i){
     let copy = this.state.cards.slice();
     copy[i].down = !copy[i].down
     this.setState({
@@ -119,8 +143,8 @@ class Game extends React.Component{
             <Headline>MemoryCard</Headline>
                 <Coin />
                 <Tablero />
-                
-    
+
+
                 <MyContainer>
 
                   <div className="row">
@@ -148,10 +172,10 @@ class Game extends React.Component{
                     {cards.slice(14,16)}
                   </div>
                 </MyContainer>
-          
+
             </div>
           </div>
-          
+
        </div>
 
       );
